@@ -5,10 +5,11 @@ use std::{env, process};
 
 fn main() {
     // 获取命令行参数，并将它们存储在一个字符串向量中
-    let args: Vec<String> = env::args().collect();
+    // let args: Vec<String> = env::args().collect();
 
     // 尝试构建 Config 结构体，如果出现错误则进行处理
-    let config = Config::build(&args).unwrap_or_else(|err| {
+    // let config = Config::build(&args).unwrap_or_else(|err| {
+    let config = Config::build(env::args()).unwrap_or_else(|err| {
         println!("Problem parsing arguments: {}", err); // 打印错误信息
         process::exit(1); // 退出程序，返回错误状态码
     });

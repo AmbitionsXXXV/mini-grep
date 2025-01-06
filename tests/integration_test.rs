@@ -4,11 +4,11 @@ use minigrep::{search, search_case_insensitive, Config};
 #[test]
 fn test_case_sensitive() {
     let query = "duct";
-    let contents = "\
+    let contents = r#"
 Rust:
 safe, fast, productive.
 Pick three.
-Duct tape.";
+Duct tape."#;
 
     assert_eq!(vec!["safe, fast, productive."], search(query, contents));
 }
@@ -17,11 +17,11 @@ Duct tape.";
 #[test]
 fn test_case_insensitive() {
     let query = "rUsT";
-    let contents = "\
+    let contents = r#"
 Rust:
 safe, fast, productive.
 Pick three.
-Trust me.";
+Trust me."#;
 
     assert_eq!(
         vec!["Rust:", "Trust me."],
